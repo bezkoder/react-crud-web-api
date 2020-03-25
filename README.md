@@ -1,7 +1,31 @@
-# Vue.js CRUD App with Vue Router & Axios
+# React.js CRUD App with React Router & Axios
 
 For more detail, please visit:
-> [React.js CRUD example to consume Web API](https://bezkoder.com/react-crud-web-api/)
+> [React (Components) CRUD example to consume Web API](https://bezkoder.com/react-crud-web-api/)
+
+> [React (Hooks) CRUD example to consume Web API](https://bezkoder.com/react-hooks-crud-axios-api/)
+
+Fullstack with Node.js Express:
+> [React.js + Node.js Express + MySQL](https://bezkoder.com/react-node-express-mysql/)
+
+> [React.js + Node.js Express + PostgreSQL](https://bezkoder.com/react-node-express-postgresql/)
+
+> [React.js + Node.js Express + MongoDB](https://bezkoder.com/react-node-express-mongodb-mern-stack/)
+
+Fullstack with Spring Boot:
+> [React.js + Spring Boot + MySQL](https://bezkoder.com/react-spring-boot-crud/)
+
+> [React.js + Spring Boot + MongoDB](https://bezkoder.com/react-spring-boot-mongodb/)
+
+Fullstack with Django:
+
+> [React.js + Django Rest Framework](https://bezkoder.com/django-react-axios-rest-framework/)
+
+Serverless:
+> [React Firebase CRUD App with Realtime Database](https://bezkoder.com/react-firebase-crud/)
+
+> [React Firestore CRUD App example | Firebase Cloud Firestore](https://bezkoder.com/react-firestore-crud/)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

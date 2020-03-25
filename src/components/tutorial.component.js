@@ -114,9 +114,11 @@ export default class Tutorial extends Component {
   }
 
   render() {
+    const { currentTutorial } = this.state;
+
     return (
       <div>
-        {this.state.currentTutorial ? (
+        {currentTutorial ? (
           <div className="edit-form">
             <h4>Tutorial</h4>
             <form>
@@ -126,7 +128,7 @@ export default class Tutorial extends Component {
                   type="text"
                   className="form-control"
                   id="title"
-                  value={this.state.currentTutorial.title}
+                  value={currentTutorial.title}
                   onChange={this.onChangeTitle}
                 />
               </div>
@@ -136,7 +138,7 @@ export default class Tutorial extends Component {
                   type="text"
                   className="form-control"
                   id="description"
-                  value={this.state.currentTutorial.description}
+                  value={currentTutorial.description}
                   onChange={this.onChangeDescription}
                 />
               </div>
@@ -145,11 +147,11 @@ export default class Tutorial extends Component {
                 <label>
                   <strong>Status:</strong>
                 </label>
-                {this.state.currentTutorial.published ? "Published" : "Pending"}
+                {currentTutorial.published ? "Published" : "Pending"}
               </div>
             </form>
 
-            {this.state.currentTutorial.published ? (
+            {currentTutorial.published ? (
               <button
                 className="badge badge-primary mr-2"
                 onClick={() => this.updatePublished(false)}

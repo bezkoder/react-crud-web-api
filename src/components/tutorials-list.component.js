@@ -85,6 +85,8 @@ export default class TutorialsList extends Component {
   }
 
   render() {
+    const { searchTitle, tutorials, currentTutorial, currentIndex } = this.state;
+
     return (
       <div className="list row">
         <div className="col-md-8">
@@ -93,7 +95,7 @@ export default class TutorialsList extends Component {
               type="text"
               className="form-control"
               placeholder="Search by title"
-              value={this.state.title}
+              value={searchTitle}
               onChange={this.onChangeSearchTitle}
             />
             <div className="input-group-append">
@@ -111,12 +113,12 @@ export default class TutorialsList extends Component {
           <h4>Tutorials List</h4>
 
           <ul className="list-group">
-            {this.state.tutorials &&
-              this.state.tutorials.map((tutorial, index) => (
+            {tutorials &&
+              tutorials.map((tutorial, index) => (
                 <li
                   className={
                     "list-group-item " +
-                    (index === this.state.currentIndex ? "active" : "")
+                    (index === currentIndex ? "active" : "")
                   }
                   onClick={() => this.setActiveTutorial(tutorial, index)}
                   key={index}
@@ -134,30 +136,30 @@ export default class TutorialsList extends Component {
           </button>
         </div>
         <div className="col-md-6">
-          {this.state.currentTutorial ? (
+          {currentTutorial ? (
             <div>
               <h4>Tutorial</h4>
               <div>
                 <label>
                   <strong>Title:</strong>
                 </label>{" "}
-                {this.state.currentTutorial.title}
+                {currentTutorial.title}
               </div>
               <div>
                 <label>
                   <strong>Description:</strong>
                 </label>{" "}
-                {this.state.currentTutorial.description}
+                {currentTutorial.description}
               </div>
               <div>
                 <label>
                   <strong>Status:</strong>
                 </label>{" "}
-                {this.state.currentTutorial.published ? "Published" : "Pending"}
+                {currentTutorial.published ? "Published" : "Pending"}
               </div>
 
               <Link
-                to={"/tutorials/" + this.state.currentTutorial.id}
+                to={"/tutorials/" + currentTutorial.id}
                 className="badge badge-warning"
               >
                 Edit
