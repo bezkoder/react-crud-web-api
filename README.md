@@ -5,6 +5,9 @@ For more detail, please visit:
 
 > [React (Hooks) CRUD example to consume Web API](https://bezkoder.com/react-hooks-crud-axios-api/)
 
+Using Material UI instead of Bootstrap:
+> [React Material UI examples with a CRUD Application](https://bezkoder.com/react-material-ui-examples-crud/)
+
 Fullstack with Node.js Express:
 > [React.js + Node.js Express + MySQL](https://bezkoder.com/react-node-express-mysql/)
 
