@@ -72,6 +72,11 @@ export default class TutorialsList extends Component {
   }
 
   searchTitle() {
+    this.setState({
+      currentTutorial: null,
+      currentIndex: -1
+    });
+
     TutorialDataService.findByTitle(this.state.searchTitle)
       .then(response => {
         this.setState({
