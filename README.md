@@ -31,6 +31,11 @@ Serverless:
 
 > [React Firestore CRUD App example | Firebase Cloud Firestore](https://bezkoder.com/react-firestore-crud/)
 
+Integration (run back-end & front-end on same server/port)
+> [How to integrate React.js with Spring Boot](https://bezkoder.com/integrate-reactjs-spring-boot/)
+
+> [Integrate React with Node.js Express on same Server/Port](https://bezkoder.com/integrate-react-express-same-server-port/)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
