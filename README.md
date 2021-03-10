@@ -1,12 +1,37 @@
 # React.js CRUD App with React Router & Axios
 
-For more detail, please visit:
-> [React (Components) CRUD example to consume Web API](https://bezkoder.com/react-crud-web-api/)
+Build a React.js CRUD Application to consume Web API, display and modify data with Router, Axios & Bootstrap.
+
+React Tutorial Application in that:
+- Each Tutorial has id, title, description, published status.
+- We can create, retrieve, update, delete Tutorials.
+- There is a Search bar for finding Tutorials by title.
+
+![react-crud-example-web-api-demo](react-crud-example-web-api-demo.png)
+
+For instruction, please visit:
+> [React CRUD example to consume Web API](https://bezkoder.com/react-crud-web-api/)
+
+Related Posts:
+> [React Typescript CRUD example to consume Web API](https://bezkoder.com/react-typescript-axios/)
+
+> [React Redux CRUD App example with Rest API](https://bezkoder.com/react-redux-crud-example/)
 
 > [React (Hooks) CRUD example to consume Web API](https://bezkoder.com/react-hooks-crud-axios-api/)
 
+> [React Table example: CRUD App with react-table v7](https://bezkoder.com/react-table-example-hooks-crud/)
+
 Using Material UI instead of Bootstrap:
 > [React Material UI examples with a CRUD Application](https://bezkoder.com/react-material-ui-examples-crud/)
+
+More Practice:
+> [React Pagination example](https://bezkoder.com/react-pagination-material-ui/)
+
+> [React File Upload example](https://bezkoder.com/react-file-upload-axios/)
+
+> [React JWT Authentication & Authorization example](https://bezkoder.com/react-jwt-auth/)
+
+> [React + Redux: JWT Authentication & Authorization example](https://bezkoder.com/react-redux-jwt-auth/)
 
 Fullstack with Node.js Express:
 > [React.js + Node.js Express + MySQL](https://bezkoder.com/react-node-express-mysql/)
