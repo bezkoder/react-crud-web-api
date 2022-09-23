@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import TutorialDataService from "../services/tutorial.service";
+import { withRouter } from '../common/with-router';
 
-export default class Tutorial extends Component {
+class Tutorial extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -23,7 +24,7 @@ export default class Tutorial extends Component {
   }
 
   componentDidMount() {
-    this.getTutorial(this.props.match.params.id);
+    this.getTutorial(this.props.router.params.id);
   }
 
   onChangeTitle(e) {
@@ -106,7 +107,7 @@ export default class Tutorial extends Component {
     TutorialDataService.delete(this.state.currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        this.props.history.push('/tutorials')
+        this.props.router.navigate('/tutorials');
       })
       .catch(e => {
         console.log(e);
@@ -193,3 +194,5 @@ export default class Tutorial extends Component {
     );
   }
 }
+
+export default withRouter(Tutorial);
