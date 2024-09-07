@@ -66,7 +66,7 @@ export default class TutorialsList extends Component {
     return (
       <div className="list row">
         <div className="col-md-6">
-          <h4>Tutorials List</h4>
+          <h4>Parceiros</h4>
 
           <ul className="list-group">
             {tutorials &&
@@ -87,7 +87,7 @@ export default class TutorialsList extends Component {
         <div className="col-md-6">
           {currentTutorial ? (
             <div>
-              <h4>Tutorial</h4>
+              <h4>Dados do Parceiro</h4>
               <div>
                 <label>
                   <strong>Nome:</strong>
