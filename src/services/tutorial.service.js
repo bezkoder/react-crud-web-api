@@ -1,32 +1,34 @@
 import http from "../http-common";
 
+const url = "https://644060ba792fe886a88de1b9.mockapi.io/v1/test/partners";
+
 class TutorialDataService {
-  getAll() {
-    return http.get("/tutorials");
+  getParceiros() {
+    return http.get(url);
   }
 
-  get(id) {
-    return http.get(`/tutorials/${id}`);
+  getParceiroById(id) {
+    return http.get(`${url}${id}`);
   }
 
-  create(data) {
-    return http.post("/tutorials", data);
+  postParceiro(data) {
+    return http.post(`${url}`, data);
   }
 
-  update(id, data) {
-    return http.put(`/tutorials/${id}`, data);
+  putParceiro(id, data) {
+    return http.put(`${url}/${id}`, data);
   }
 
-  delete(id) {
-    return http.delete(`/tutorials/${id}`);
+  deleteParceiroById(id) {
+    return http.delete(`${url}/${id}`);
   }
 
-  deleteAll() {
-    return http.delete(`/tutorials`);
+  deleteTodosParceiros() {
+    return http.delete(`${url}`);
   }
 
   findByTitle(title) {
-    return http.get(`/tutorials?title=${title}`);
+    return http.get(`${url}?title=${title}`);
   }
 }
 

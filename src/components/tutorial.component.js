@@ -30,7 +30,7 @@ class Tutorial extends Component {
   onChangeTitle(e) {
     const title = e.target.value;
 
-    this.setState(function(prevState) {
+    this.setState(function (prevState) {
       return {
         currentTutorial: {
           ...prevState.currentTutorial,
@@ -42,7 +42,7 @@ class Tutorial extends Component {
 
   onChangeDescription(e) {
     const description = e.target.value;
-    
+
     this.setState(prevState => ({
       currentTutorial: {
         ...prevState.currentTutorial,
@@ -52,7 +52,7 @@ class Tutorial extends Component {
   }
 
   getTutorial(id) {
-    TutorialDataService.get(id)
+    TutorialDataService.getParceiroById(id)
       .then(response => {
         this.setState({
           currentTutorial: response.data
@@ -72,7 +72,7 @@ class Tutorial extends Component {
       published: status
     };
 
-    TutorialDataService.update(this.state.currentTutorial.id, data)
+    TutorialDataService.putParceiro(this.state.currentTutorial.id, data)
       .then(response => {
         this.setState(prevState => ({
           currentTutorial: {
@@ -88,7 +88,7 @@ class Tutorial extends Component {
   }
 
   updateTutorial() {
-    TutorialDataService.update(
+    TutorialDataService.putParceiro(
       this.state.currentTutorial.id,
       this.state.currentTutorial
     )
@@ -103,7 +103,7 @@ class Tutorial extends Component {
       });
   }
 
-  deleteTutorial() {    
+  deleteTutorial() {
     TutorialDataService.delete(this.state.currentTutorial.id)
       .then(response => {
         console.log(response.data);

@@ -33,7 +33,7 @@ export default class TutorialsList extends Component {
   }
 
   retrieveTutorials() {
-    TutorialDataService.getAll()
+    TutorialDataService.getParceiros()
       .then(response => {
         this.setState({
           tutorials: response.data
@@ -61,7 +61,7 @@ export default class TutorialsList extends Component {
   }
 
   removeAllTutorials() {
-    TutorialDataService.deleteAll()
+    TutorialDataService.deleteTodosParceiros()
       .then(response => {
         console.log(response.data);
         this.refreshList();
