@@ -127,10 +127,10 @@ class Tutorial extends Component {
   updateTutorial() {
     var data = {
       id: this.state.currentParceiro.id,
-      name: this.state.name,
-      description: this.state.description,
-      clients: [this.state.client, this.state.client2],
-      projects: [this.state.project, this.state.project2],
+      name: this.state.currentParceiro.name,
+      description: this.state.currentParceiro.description,
+      clients: [this.state.currentParceiro.client, this.state.currentParceiro.client2],
+      projects: [this.state.currentParceiro.project, this.state.currentParceiro.project2],
     };
 
     TutorialDataService.putParceiro(
