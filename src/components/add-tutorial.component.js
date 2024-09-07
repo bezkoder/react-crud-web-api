@@ -19,7 +19,6 @@ export default class AddTutorial extends Component {
       description: "",
       client: "",
       client2: "",
-      published: false,
       submitted: false
     };
   }
@@ -77,7 +76,6 @@ export default class AddTutorial extends Component {
           description: response.data.description,
           clients: response.data.clients,
           projects: response.data.projects,
-          published: response.data.published,
           submitted: true
         });
         console.log(response.data);
@@ -96,7 +94,6 @@ export default class AddTutorial extends Component {
       client2: "",
       project: "",
       project2: "",
-      published: false,
       submitted: false
     });
   }

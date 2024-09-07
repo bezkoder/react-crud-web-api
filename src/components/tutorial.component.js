@@ -5,36 +5,41 @@ import { withRouter } from '../common/with-router';
 class Tutorial extends Component {
   constructor(props) {
     super(props);
-    this.onChangeTitle = this.onChangeTitle.bind(this);
+    this.onChangeName = this.onChangeName.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.getTutorial = this.getTutorial.bind(this);
-    this.updatePublished = this.updatePublished.bind(this);
+    this.onChangeClient = this.onChangeClient.bind(this);
+    this.onChangeClient2 = this.onChangeClient2.bind(this);
+    this.onChangeProject = this.onChangeProject.bind(this);
+    this.onChangeProject2 = this.onChangeProject2.bind(this);
+    this.getParceiro = this.getParceiro.bind(this);
     this.updateTutorial = this.updateTutorial.bind(this);
-    this.deleteTutorial = this.deleteTutorial.bind(this);
+    this.deleteParceiro = this.deleteParceiro.bind(this);
+    this.idParceiro = this.props.router.params.id;
 
     this.state = {
-      currentTutorial: {
-        id: null,
-        title: "",
+      currentParceiro: {
+        id: this.idParceiro,
+        name: "",
         description: "",
-        published: false
+        client: "",
+        client2: ""
       },
       message: ""
     };
   }
 
   componentDidMount() {
-    this.getTutorial(this.props.router.params.id);
+    this.getParceiro(this.idParceiro);
   }
 
-  onChangeTitle(e) {
-    const title = e.target.value;
+  onChangeName(e) {
+    const name = e.target.value;
 
     this.setState(function (prevState) {
       return {
-        currentTutorial: {
-          ...prevState.currentTutorial,
-          title: title
+        currentParceiro: {
+          ...prevState.currentParceiro,
+          name: name
         }
       };
     });
@@ -43,43 +48,75 @@ class Tutorial extends Component {
   onChangeDescription(e) {
     const description = e.target.value;
 
-    this.setState(prevState => ({
-      currentTutorial: {
-        ...prevState.currentTutorial,
-        description: description
-      }
-    }));
+    this.setState(function (prevState) {
+      return {
+        currentParceiro: {
+          ...prevState.currentParceiro,
+          description: description
+        }
+      };
+    });
+
   }
 
-  getTutorial(id) {
+  onChangeClient(e) {
+    const client = e.target.value;
+
+    this.setState(function (prevState) {
+      return {
+        currentParceiro: {
+          ...prevState.currentParceiro,
+          client: client
+        }
+      };
+    });
+  }
+
+  onChangeClient2(e) {
+    const client2 = e.target.value;
+
+    this.setState(function (prevState) {
+      return {
+        currentParceiro: {
+          ...prevState.currentParceiro,
+          client2: client2
+        }
+      };
+    });
+  }
+
+  onChangeProject(e) {
+    const project = e.target.value;
+
+    this.setState(function (prevState) {
+      return {
+        currentParceiro: {
+          ...prevState.currentParceiro,
+          project: project
+        }
+      };
+    });
+  }
+
+  onChangeProject2(e) {
+    const project2 = e.target.value;
+
+    this.setState(function (prevState) {
+      return {
+        currentParceiro: {
+          ...prevState.currentParceiro,
+          project2: project2
+        }
+      };
+    });
+  }
+
+  getParceiro(id) {
     TutorialDataService.getParceiroById(id)
       .then(response => {
         this.setState({
-          currentTutorial: response.data
+          currentParceiro: response.data
         });
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
-
-  updatePublished(status) {
-    var data = {
-      id: this.state.currentTutorial.id,
-      title: this.state.currentTutorial.title,
-      description: this.state.currentTutorial.description,
-      published: status
-    };
-
-    TutorialDataService.putParceiro(this.state.currentTutorial.id, data)
-      .then(response => {
-        this.setState(prevState => ({
-          currentTutorial: {
-            ...prevState.currentTutorial,
-            published: status
-          }
-        }));
         console.log(response.data);
       })
       .catch(e => {
@@ -88,14 +125,21 @@ class Tutorial extends Component {
   }
 
   updateTutorial() {
+    var data = {
+      id: this.state.currentParceiro.id,
+      name: this.state.name,
+      description: this.state.description,
+      clients: [this.state.client, this.state.client2],
+      projects: [this.state.project, this.state.project2],
+    };
+
     TutorialDataService.putParceiro(
-      this.state.currentTutorial.id,
-      this.state.currentTutorial
+      this.idParceiro, data
     )
       .then(response => {
         console.log(response.data);
         this.setState({
-          message: "The tutorial was updated successfully!"
+          message: "O parceiro foi atualizado com sucesso!"
         });
       })
       .catch(e => {
@@ -103,8 +147,8 @@ class Tutorial extends Component {
       });
   }
 
-  deleteTutorial() {
-    TutorialDataService.delete(this.state.currentTutorial.id)
+  deleteParceiro() {
+    TutorialDataService.deleteParceiroById(this.idParceiro)
       .then(response => {
         console.log(response.data);
         this.props.router.navigate('/tutorials');
@@ -115,62 +159,96 @@ class Tutorial extends Component {
   }
 
   render() {
-    const { currentTutorial } = this.state;
+    const { currentParceiro } = this.state;
 
     return (
       <div>
-        {currentTutorial ? (
+        {currentParceiro ? (
           <div className="edit-form">
-            <h4>Tutorial</h4>
+            <h4>Parceiro</h4>
             <form>
               <div className="form-group">
-                <label htmlFor="title">Title</label>
+                <label htmlFor="name">Nome</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="title"
-                  value={currentTutorial.title}
-                  onChange={this.onChangeTitle}
+                  id="name"
+                  required
+                  value={this.state.name}
+                  onChange={this.onChangeName}
+                  name="name"
                 />
               </div>
+
               <div className="form-group">
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">Descrição</label>
                 <input
                   type="text"
                   className="form-control"
                   id="description"
-                  value={currentTutorial.description}
+                  required
+                  value={this.state.description}
                   onChange={this.onChangeDescription}
+                  name="description"
                 />
               </div>
 
               <div className="form-group">
-                <label>
-                  <strong>Status:</strong>
-                </label>
-                {currentTutorial.published ? "Published" : "Pending"}
+                <label htmlFor="client">Cliente</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="client"
+                  required
+                  value={this.state.client}
+                  onChange={this.onChangeClient}
+                  name="client"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="client2">Cliente 2</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="client2"
+                  required
+                  value={this.state.client2}
+                  onChange={this.onChangeClient2}
+                  name="client2"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="project">Projeto</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="project"
+                  required
+                  value={this.state.project}
+                  onChange={this.onChangeProject}
+                  name="project"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="project2">Projeto 2</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="project2"
+                  required
+                  value={this.state.project2}
+                  onChange={this.onChangeProject2}
+                  name="project2"
+                />
               </div>
             </form>
 
-            {currentTutorial.published ? (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(false)}
-              >
-                UnPublish
-              </button>
-            ) : (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(true)}
-              >
-                Publish
-              </button>
-            )}
-
             <button
               className="badge badge-danger mr-2"
-              onClick={this.deleteTutorial}
+              onClick={this.deleteParceiro}
             >
               Delete
             </button>

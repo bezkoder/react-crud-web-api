@@ -8,7 +8,7 @@ class TutorialDataService {
   }
 
   getParceiroById(id) {
-    return http.get(`${url}${id}`);
+    return http.get(`${url}/${id}`);
   }
 
   postParceiro(data) {
@@ -21,14 +21,6 @@ class TutorialDataService {
 
   deleteParceiroById(id) {
     return http.delete(`${url}/${id}`);
-  }
-
-  deleteTodosParceiros() {
-    return http.delete(`${url}`);
-  }
-
-  findByTitle(title) {
-    return http.get(`${url}?title=${title}`);
   }
 }
 
