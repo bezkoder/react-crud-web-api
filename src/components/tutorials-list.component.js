@@ -134,7 +134,7 @@ export default class TutorialsList extends Component {
           </ul>
 
           <button
-            className="m-3 btn btn-sm btn-danger"
+            className="m-3 btn btn-sm btn-danger rounded-pill"
             onClick={this.removeAllTutorials}
           >
             Remove All
