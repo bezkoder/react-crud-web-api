@@ -13,3 +13,7 @@
   max-width: 300px;
   margin: auto;
 }
+
+.h-1 {
+  background-color: grey;
+}
